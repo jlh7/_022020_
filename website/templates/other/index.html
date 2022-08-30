@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+
+{% block head  %}
+  <title>Chào mừng</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='Css/index.css')}}">
+{% endblock %}
+
+{% block container %}
+<div class="txt-cont">
+  <h1>CON NGƯỜI PHẢI CÓ</h1>
+  <br>
+  <h1><span class="deco" id="head"></span></h1>
+  <br>
+  <p id="head-txt">
+    Bạn có muốn:
+    <br>
+    Vóc dáng mơ ước?
+    <br>
+    Sức mạnh cơ bắp?
+    <br>
+    Sức khoẻ tốt?
+    <br>
+    <br>
+    Hãy nhấn nút bên dưới!
+    <br>
+    Để tạo ngay cho mình một kế hoạch tập luyện nhé!
+  </p>
+  <br>
+  {% if user.is_authenticated %}
+  <a href="/home" class="btn start" >Trang chính</a>
+  {% else %}
+  <a href="/sign_in" class="btn start" >Bắt Đầu</a>
+  {% endif %}
+</div>
+<div class="navbarbot" onclick="location.href='about'">&#60Về chúng tôi&#62 </div>
+<script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+<script>
+  new TypeIt("#head-txt", {
+    speed: 50
+  }).go();
+
+  new TypeIt("#head", {
+    speed: 200,
+    waitUntilVisible: true
+  })
+  .type("VÓC DÁNG", {delay: 300})
+  .delete(8)
+  .type("SỨC MẠNH", {delay: 300})
+  .delete(8)
+  .type("SỨC KHOẺ")
+  .go();
+</script>
+{% endblock %}

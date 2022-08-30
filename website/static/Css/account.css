@@ -1,0 +1,153 @@
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("../image/scr.jpg");
+    background-position: top;
+    background-size: 100%;
+}
+
+.form-box{
+    min-width: 100%;
+    background: #fff;
+    font-weight: 1000;
+    background-image: url("../image/note.jpg");
+    background-position: center;
+    box-shadow: 0 0  9px #ffa500;
+    border-radius: 30px;
+    font-family: 'Lora';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-box .button-box{
+    width: 341px;
+    margin: 10px auto;
+    position: relative;
+    box-shadow: 0 0  9px #ffa500;
+    border-radius: 30px;
+}
+
+.form-box .btn{
+    padding: 10px 50px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    font-weight: 1000;
+    font-family: 'Lora';
+}
+
+.form-box #btn{
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border-radius: 30px;
+    transform: .5s;
+}
+
+.heading {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    color: black;
+    text-transform: uppercase;
+}
+.heading h1{
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.heading h0{
+    font-weight: 1000;
+    font-size: 3rem;
+}
+
+.form-box .input-box{
+  min-width: 60%;
+  max-width: 100%;
+}
+
+.form-box .input-box .form{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-box .input-box .form .input-field{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-box .input-box .form .input-field label{
+  max-width: 25%;
+  min-width: 30%;
+  color: black;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.form-box .input-box .form .input-field label span{
+  color: red;
+}
+
+.form-box .input-box .form .input-field .input{
+  max-width: 70%;
+  min-width: 70%;
+  font-size: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.form-box .input-box .form .input-field .input input{
+  width: 100%;
+  font-size: 1.5rem;
+  text-transform: none;
+  background: transparent;
+  border: 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  outline: none;
+  text-align: center;
+}
+
+.form-box .input-box .form .input-field .input .male,
+.form-box .input-box .form .input-field .input .female{
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+.form-box .input-box .form .input-field .input .male input,
+.form-box .input-box .form .input-field .input .female input{
+  width: 7.5%;
+}
+
+.form-box .input-box .form .input-field .input textarea{
+  background: transparent;
+  font-size: 1.3rem;
+  min-width: 100%;
+}
+
+.form input[type='radio']{
+  transform: scale(2);
+}
+
+.submit-box{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.submit-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    margin: auto;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    font-weight: 1000;
+    
+}

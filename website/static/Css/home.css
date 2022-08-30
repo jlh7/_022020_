@@ -1,0 +1,87 @@
+body{
+	background-image: url(../image/Gym2.jpg);
+	background-position: top;
+	background-size: 100%;
+	text-align: center;
+}
+
+.features
+{
+	color: #fff;
+  width:100%;
+}
+
+.featuresTitle h1
+{
+	font-size: 3em;
+	font-family: 'Big Shoulders Stencil Display', cursive;
+	font-weight: 1000;
+}
+
+.featuresTitle h1 span
+{
+	color: var(--orange);
+	font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
+.featureCardWrapper
+{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	
+}
+
+.featureCardWrapper form
+{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	
+}
+
+.featureCard
+{
+	max-width: 300px;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 20px;
+	border-bottom: 2px solid white;
+}
+
+.featureCard h2
+{
+	font-size: 1.5rem;
+	font-family: 'Play', sans-serif;
+	font-weight: 1000;
+}
+
+.featureCard p{
+	font-weight: 300;
+	font-size: 1rem;
+	font-family: 'Play', sans-serif;
+}
+
+.featureCard button
+{
+	outline: none;
+	border: none;
+	height: 40px;
+	border-radius: 20px;
+	margin-top: 20px;
+	background: var(--orange);
+	width: 150px;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	color: black;
+	font-family: 'Lora', serif;
+}
+
+.featureCard button a
+{
+	color: black;
+  text-decoration: none;
+}

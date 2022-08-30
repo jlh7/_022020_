@@ -1,0 +1,4 @@
+.vscode
+env
+__pycache__
+website/data/w4h.db

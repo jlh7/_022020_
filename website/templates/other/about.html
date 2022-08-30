@@ -1,0 +1,129 @@
+{% extends "base.html" %} 
+
+{% block head  %}
+  <title>Về chúng tôi</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='Css/about.css')}}">
+{% endblock %}
+
+{% block container %}
+<div class="txt-cont">
+  <h1>VỀ CHÚNG TÔI</h1>
+  <h1><a href= "http://m.me/w4h.site/" target="_blank" rel="noopener noreferrer"><span class="deco" id="head"></span></a></h1>
+  <p id="head-txt">
+    <c>Quản lý:</c>
+    <br>
+    <a href= "http://m.me/Hotan.lht" target="_blank" rel="noopener noreferrer">Lê Hoàng Tuấn</a>
+    <br>
+    <br>
+    <c>Lên ý tưởng:</c>
+    <br>
+    <a href="http://m.me/tam.ho.53472" target="_blank" rel="noopener noreferrer">Hồ Ngọc Thành Tâm</a>
+    <br>
+    <br>
+    <c>Thiết kế:</c>
+    <br>
+    <a href="http://m.me/truong.khuong.399" target="_blank" rel="noopener noreferrer">Trương Nguyễn Đăng Khương</a>
+    <br>
+    <a href="http://m.me/mlem.fl" target="_blank" rel="noopener noreferrer">Nguyễn Tất Kiệt</a>
+    <br>
+    <br>
+    <c>Xử lý và phân tích dữ liệu:</c>
+    <br>
+    <a href="http://m.me/huynguyentruong.27102001" target="_blank" rel="noopener noreferrer">Nguyễn Trường Huy</a>
+    <br>
+    <a href="http://m.me/Hotan.lht" target="_blank" rel="noopener noreferrer">Lê Hoàng Tuấn</a>
+  </p>
+</div>
+<div class="navbarbot" onclick="location.href='about'">&#60Chữ màu vàng để liên hệ!&#62 </div>
+<script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+<script>
+      new TypeIt("#head-txt", {
+        speed: 50
+      }).go();
+
+      new TypeIt("#head", {
+        speed: 380
+      })
+      .delete(1)
+      .type('a')
+      .type('a')
+      .move(-2)
+      .type('B')
+      .type('D')
+      .move(-1)
+      .type('g')
+      .move(-1)
+      .type('i')
+      .move(3)
+      .type('t')
+      .move(-3)
+      .type('_')
+      .move(4)
+      .type('?')
+      .move(-6)
+      .delete(1)
+      .delete(1)
+      .delete(1)
+      .type('N')
+      .type('o')
+      .move(6)
+      .delete(1)
+      .type('!')
+      .go();
+    </script>
+
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

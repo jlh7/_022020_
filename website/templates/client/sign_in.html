@@ -1,0 +1,67 @@
+
+{% extends "base.html" %} 
+
+
+{% block head  %}
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/let_in.css')}}">
+    <title>Đăng nhập</title>
+{% endblock %}
+
+{% block container %}
+<div class="form-box">
+  <div class="button-box">
+    <button type="button" class="btn" id="btn" onclick="location.href='sign_up'">Đăng Nhập</button>
+    <button type="button" class="btn" onclick="location.href='sign_up'">Đăng Ký</button>
+  </div>
+  <div class="user-icon">
+    <img src="{{url_for('static', filename='image/user.jpg')}}">
+  </div>
+  <form id="signin" class="input-group" method="post">
+    <input 
+      type="text" 
+      class="input-field" 
+      name="uid"
+      {% if text_uid %}
+      value="{{ text_uid }}"
+      {% endif %}
+      placeholder="Nhập tên đăng nhập" 
+      required
+    />
+    <input 
+      type="password" 
+      class="input-field" 
+      name="pwd"
+      placeholder="Nhập mật khẩu" 
+      required
+    />
+    <button type="submit" class="submit-btn">Đăng Nhập</button>
+  </form>
+</div>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

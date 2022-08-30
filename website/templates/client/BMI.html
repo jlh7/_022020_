@@ -1,0 +1,101 @@
+{% extends "base.html" %} 
+{% block head  %}
+    <title>Tính chỉ số BMI</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/BMI.css')}}">
+{% endblock %}
+
+{% block container %}
+<div class="form-box">
+  <h1 class="heading">
+      <span>Tính chỉ số BMI</span>  
+  </h1>
+  <p>(Chỉ số dùng để tham khảo, không dùng để đánh giá ngoại hình của bất kỳ một cá nhân nào!)
+  <br>
+  Để kiểm tra chỉ số BMI
+  <br>
+  Nhập số cân nặng và chiều cao của bạn:</p>
+  <form class="input-group" method="POST">
+  {% if user.Plan %}
+    {% for plan in user.Plan %}
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        id="weight"
+        name="weight"
+        {% if plan.Weight %}
+        value="{{plan.Weight}}"
+        {% else %}
+        placeholder="Cân nặng hiện tại" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Kg</span>
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        id="height"
+        name="height"
+        {% if plan.Height %}
+        value="{{plan.Height}}"
+        {% else %}
+        placeholder="Chiều cao hiện tại" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Cm</span>
+    {% endfor %}
+  {% else %}
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      id="weight"
+      name="weight"
+      placeholder="Cân nặng hiện tại" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Kg</span>
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      id="height"
+      name="height"
+      placeholder="Chiều cao hiện tại" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Cm</span>
+  {% endif %}
+    <button type="submit" class="submit-btn">Tính BMI</button>
+  </form>
+</div>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "base.html" %} 
+
+{% block head  %}
+<!--Các lệnh head của trang Schedule tại đây-->
+  <link rel="stylesheet" href="{{url_for('static', filename='Css/schedule.css')}}">
+  <title>Lịch tập</title>
+{% endblock %}
+
+{% block body %}
+<!--Các lệnh body của trang Schedule tại đây-->
+{% if week %}
+<div class="heading">
+  #Theo các chuyên gia, để cơ phát triển tốt nhất thì một tuần nên chỉ tập một nhóm cơ tối đa 3 lần và nên để nhóm cơ đó nghỉ ngơi khoảng 16 tiếng trước khi tập lại!
+  <br>
+  (Trừ những nhóm cơ core hay cơ thân giữa!)
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-wrap">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th id="STT">STT</th>
+            <th id="1">Chủ Nhật</th>
+            <th id="2">Thứ Hai</th>
+            <th id="3">Thứ Ba</th>
+            <th id="4">Thứ Tư</th>
+            <th id="5">Thứ Năm</th>
+            <th id="6">Thứ Sáu</th>
+            <th id="7">Thứ Bảy</th>
+            <script>
+              let a = (new Date()).toUTCString().substring(0,3)
+              if (a == "Mon"){
+                a = 2
+              }else if (a == "Tue"){
+                a = 3
+              }else if (a == "Wed"){
+                a = 4
+              }else if (a == "Thu"){
+                a = 5
+              }else if (a == "Fri"){
+                a = 6
+              }else if (a == "Sat"){
+                a = 7
+              }else if (a == "Sun"){
+                a = 1
+              }
+              document.getElementById(a).style.color = "black";
+              document.getElementById(a).style.backgroundColor = "orange";
+            </script>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in range(7) %}
+            <tr>
+              <td
+                    class="text-center" 
+                    style = "
+                      width: 10px;
+                      text-align: center;
+                      vertical-align: middle;
+                    "
+                      >{{i+1}}</td>
+              {% for _ in range(7) %}
+                {% if week[_][i] %}
+                    {% if week[_][i][8] %}
+                  <td class="text-center"
+                    {% if not week[_][i][7] %}
+                    style = "background-color: gray; "
+                    {% endif %}
+                  >
+                    <b>
+                      <strong>{{week[_][i][3]}}</strong> 
+                      <br>
+                      Số hiệp: {{week[_][i][1]}} 
+                      <br>
+                      Số nhịp: {{week[_][i][0]}} 
+                      <br>
+                      #Hoàn thành trong {{week[_][i][2]}} phút 
+                      <br>
+                      <br> 
+                      Nhóm cơ ảnh hưởng: 
+                      <br>
+                      {{week[_][i][5]}}
+                      <br>
+                      Cách tập: 
+                      <br>
+                      {{week[_][i][4]}}
+                    </b>
+                  </td>
+                    {% else %}
+                      <td 
+                    class="text-center" 
+                    style = "
+                      background-color: black; 
+                      width: 10px;
+                      color: white;
+                      text-align: center;
+                      vertical-align: middle;
+                    "
+                      >/</td>
+                    {% endif %}
+                {% else %}
+                  <td 
+                    class="text-center" 
+                    style = "
+                      background-color: black; 
+                      width: 10px;
+                      color: white;
+                      text-align: center;
+                      vertical-align: middle;
+                    "
+                  >Nghỉ</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% else %}
+<p class="sen">
+  #Hệ thống đang bảo trì!
+  <br>
+  #Xin lỗi vì sự bất tiện này!
+</p>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "112711311178312");
+  chatbox.setAttribute("attribution", "biz_inbox");
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endif %}
+{% endblock %}

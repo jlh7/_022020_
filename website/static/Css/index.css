@@ -1,0 +1,43 @@
+body{
+	background: url("../image/head.jpg");
+	background-position: top;
+}
+
+
+.txt-cont{
+	text-align: center;
+}
+
+.txt-cont h1{
+  font-size: 100;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: 'Andada Pro';
+  color: white;
+}
+
+.txt-cont h1 span{
+  color: var(--orange);
+  font-size: 200%;
+}
+
+.txt-cont p{
+	width: 100%;
+  height: 100%;
+  color: white;
+	text-shadow: 0 0 9px black;
+  font-family: 'Andada Pro';
+	font-size: 1.3rem;
+}
+.txt-cont .start{
+	background: var(--yellow-light);
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono';
+  font-weight: 1000;
+	transition: .1s;
+	animation: blink;
+	border-radius: 30px;
+}
+.txt-cont .start:hover{
+	transform: scale(1.2);
+}

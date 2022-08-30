@@ -1,0 +1,165 @@
+{% extends "base.html" %} 
+{% block head  %}
+    <title>Tính chỉ số Healthy</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/healthy.css')}}">
+{% endblock %}
+
+{% block container %}
+<div class="form-box">
+  <h1 class="heading">
+      <span>Tính chỉ số Healthy</span>  
+  </h1>
+  <p>
+    (Chỉ số dùng để tham khảo, không dùng để đánh giá bất kỳ một cá nhân nào!)
+    <br>
+    Nhập các thông tin để kiểm tra chỉ số Healthy!
+    <br>
+    (*):Nhập số nhịp đạt được tối đa trong 1 hiệp ở hiện tại!
+  </p>
+  <form class="input-group" method="POST">
+  {% if user.Plan %}
+    {% for plan in user.Plan %}
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        name="weight"
+        {% if plan.Weight %}
+        value="{{plan.Weight}}"
+        {% else %}
+        placeholder="Cân nặng hiện tại" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Kg</span>
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        name="height"
+        {% if plan.Height %}
+        value="{{plan.Height}}"
+        {% else %}
+        placeholder="Chiều cao hiện tại" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Cm</span>
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        name="push_up"
+        {% if plan.Push_up %}
+        value="{{plan.Push_up}}"
+        {% else %}
+        placeholder="(*)Số hít đất (Push Up)" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Nhịp</span>
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        name="squat"
+        {% if plan.Squat %}
+        value="{{plan.Squat}}"
+        {% else %}
+        placeholder="(*)Số xuống tấn (Squat)" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Nhịp</span>
+      <input 
+        type="number" 
+        min="0"
+        class="input-field" 
+        name="crunch"
+        {% if plan.Crunch %}
+        value="{{plan.Crunch}}"
+        {% else %}
+        placeholder="(*)Số gập bụng (Crunch)" 
+        {% endif %}
+        required
+        style="text-align:left;"
+      /><span style="margin-left:-40px;">Nhịp</span>
+    {% endfor %}
+  {% else %}
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      name="weight"
+      placeholder="Cân nặng hiện tại" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Kg</span>
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      name="height"
+      placeholder="Chiều cao hiện tại" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Cm</span>
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      name="push_up"
+      placeholder="(*)Số hít đất (Push Up)" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Nhịp</span>
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      name="squat"
+      placeholder="(*)Số xuống tấn (Squat)" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Nhịp</span>
+    <input 
+      type="number" 
+      min="0"
+      class="input-field" 
+      name="crunch"
+      placeholder="(*)Số gập bụng (Crunch)" 
+      required
+      style="text-align:left;"
+    /><span style="margin-left:-40px;">Nhịp</span>
+  {% endif %}
+    <button type="submit" class="submit-btn">Tính</button>
+  </form>
+</div>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

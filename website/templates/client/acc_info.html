@@ -1,0 +1,149 @@
+{% extends "base.html" %} 
+
+{% block head  %}
+<!--Các lệnh head của trang Account tại đây-->
+  <link rel="stylesheet" href="{{url_for('static', filename='Css/account.css')}}">
+  <title>Thông tin tài khoản</title>
+{% endblock %}
+
+{% block body %}
+<!--Các lệnh body của trang Account tại đây-->
+
+<div class="form-box">
+    <br>
+  <div class="button-box">
+    <button type="button" class="btn" id="btn" onclick="location.href='acc_info'">Thông tin</button>
+    <button type="button" class="btn" onclick="location.href='acc_scr'">Bảo mật</button>
+  </div>
+    <br>
+  <div class="heading">
+    <h1>Thông tin</h1>
+    <h0>người dùng</h0>
+  </div>
+    <br>
+  <div class="input-box">
+    <form class="form" method="post">
+      <div class = "input-field">
+        {% if user.Hint_name %}
+        <label for="hint_name"> - Tên hiển thị: </label>
+        <div class="input">
+          <input 
+            type="text" 
+            name="hint_name" 
+            id="hint_name" 
+            value="{{ user.Hint_name }}"
+            required
+          />
+        </div>
+        {% else %}
+        <label for="hint_name"> - Tên hiển thị<span>(*)</span>: </label>
+        <div class="input">
+          <input 
+            type="text" 
+            name="hint_name" 
+            id="hint_name" 
+            required
+          />
+        </div>
+        {% endif %}
+      </div>
+      <div class = "input-field">
+        {% if user.Gender %}
+        <label for="Gender"> - Giới tính: </label>
+        {% else %}
+        <label for="Gender"> - Giới tính<span>(*)</span>: </label>
+        {% endif %}
+        <div class="input">
+          <div class="male">
+            <label for="male">Nam</label>
+            &nbsp;
+            <input 
+              type="radio" 
+              value="Nam" 
+              name="Gender" 
+              id="male" 
+              {% if user.Gender == "Nam" %}
+              checked
+              {% endif %}
+              required
+            />
+          </div>
+          <div class="female">
+            <label for="female">Nữ</label>
+            &nbsp;
+            <input 
+              type="radio" 
+              value="Nữ" 
+              name="Gender" 
+              id="female" 
+              {% if user.Gender == "Nữ" %}
+              checked
+              {% endif %}
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class = "input-field">
+        {% if user.Dob %}
+        <label for="DOB"> - Sinh nhật&nbsp;: </label>
+        {% else %}
+        <label for="DOB"> - Sinh nhật<span>(*)</span>: </label>
+        {% endif %}
+        <div class="input">
+          <input 
+            type="date" 
+            name="DOB" 
+            id="DOB" 
+            max="2007-01-01"
+            value="{{ user.Dob }}"
+            required
+          />
+        </div>
+      </div>
+      <div class = "input-field">
+          <label for="DOB">#Ghi chú: </label>
+        <div class="input">
+          {% if user.Note %}
+          <textarea rows="5" name ="Note">{{user.Note}}</textarea>
+          {% else %}
+          <textarea rows="5" name ="Note"></textarea>
+          {% endif %}
+        </div>
+      </div>
+        <br>
+        <div class="submit-box">
+            <button type="submit" class="submit-btn">Cập Nhật</button>
+        </div>
+      </form>
+      <br>
+  </div>
+</div>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

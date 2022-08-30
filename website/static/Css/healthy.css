@@ -1,0 +1,94 @@
+
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("../image/bmi.jpg");
+    background-position: top;
+    background-size: 100%;
+}
+
+.form-box{
+    width: 380px;
+    height: 520px;
+    position: relative;
+    margin: -5% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    background: transparent;
+    text-align: center;
+}
+
+.form-box .heading{
+    width: 100%;
+    margin: 35px auto;
+    position: relative;
+    border-radius: 30px;
+    color: white;
+    box-shadow: 0  9px #ffa500;
+    font-family: 'Lora';
+    text-transform: uppercase;
+    font-size: 1.56rem;
+    font-weight: 1000;
+}
+
+.form-box p{
+    color: var(--yellow-light);
+    text-shadow: 0 0 10px black;
+    font-family: 'Andada Pro';
+    font-weight: 1000;
+    width: 100%;
+    text-align: center;
+    font-size: 0.89rem;
+}
+
+.input-group{
+    top: 200px;
+    position: absolute;
+    width: 265px;
+    left: 7.5vh;
+    font-family: 'Andada Pro';
+}
+
+::placeholder{
+    color: white;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+    color: var(--yellow-light);
+    font-weight: 1000;
+}
+
+.submit-btn{
+    width: 100%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    font-weight: 1000;
+    font-family: 'Lora';
+}
+
+.input-group span{
+    color: var(--orange);
+    font-weight: 1000;
+}
+
+.span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+
+}

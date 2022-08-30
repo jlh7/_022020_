@@ -1,0 +1,20 @@
+{% extends 'admin/model/list.html' %}
+{% block title %} Danh sách nhóm cơ{% endblock %}
+{% block body %}
+{{ super() }}
+  <div 
+    onclick="location.href='/home'"
+    style = "
+      position: fixed;
+      right:0%;
+      bottom: 0%;
+      font-weight: 1000;
+      color: var(--orange);
+      text-align: right;
+      cursor: pointer;
+      font-style: italic;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+    &#60Về trang chủ&#62 
+  </div>
+{% endblock %}

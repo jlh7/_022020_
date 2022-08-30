@@ -1,0 +1,44 @@
+body{
+	background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("../image/com.jpg");
+	background-position: top;
+	background-size: 100%;
+}
+
+.txt-cont{
+  margin: -5% auto;
+	text-align: center;
+}
+
+.txt-cont h1{
+  font-size: 100;
+  text-transform: uppercase;
+  font-weight: 1000;
+  font-family: 'Andada Pro';
+  color: white;
+}
+
+.txt-cont h1 span{
+  color: var(--orange);
+  font-size: 175%;
+  font-weight: 1000;
+}
+
+.txt-cont p{
+	width: 100%;
+  height: 100%;
+  color: white;
+	text-shadow: 0 0 10px black;
+  font-family: 'Andada Pro';
+	font-size: 1.3rem;
+  font-weight: 1000;
+}
+
+.txt-cont p c{
+  font-weight: 1000;
+	text-transform: uppercase;
+	color: white;
+}
+
+.txt-cont p a{
+  color: var(--orange);
+}

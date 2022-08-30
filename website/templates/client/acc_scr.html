@@ -1,0 +1,109 @@
+{% extends "base.html" %} 
+
+{% block head  %}
+<!--Các lệnh head của trang Account tại đây-->
+  <link rel="stylesheet" href="{{url_for('static', filename='Css/account.css')}}">
+  <title>Thông tin bảo mật</title>
+{% endblock %}
+
+{% block body %}
+<!--Các lệnh body của trang Account tại đây-->
+
+<div class="form-box">
+    <br>
+  <div class="button-box">
+    <button type="button" class="btn" onclick="location.href='acc_info'">Thông tin</button>
+    <button type="button" class="btn" id="btn" onclick="location.href='acc_scr'">Bảo mật</button>
+  </div>
+    <br>
+  <div class="heading">
+    <h1>Bảo mật</h1>
+    <h0>người dùng</h0>
+  </div>
+    <br>
+  <div class="input-box">
+    <form class="form" method="post">
+      <div class = "input-field">
+        <label for="email"> - Email: </label>
+        <div class="input">
+          <input 
+            type="email" 
+            name="mail" 
+            id="email" 
+            value="{{ user.Email }}"
+            required
+          />
+        </div>
+      </div>
+      <div class = "input-field">
+        <label for="pwd"> - Mật khẩu cũ: </label>
+        <div class="input">
+          <input 
+            type="password" 
+            name="pwd" 
+            id="pwd" 
+            placeholder="Nhập mật khẩu cũ"
+          />
+        </div>
+      </div>
+      <div class = "input-field">
+        <label for="pwd1"> - Mật khẩu mới: </label>
+        <div class="input">
+          <input 
+            type="password" 
+            name="pwd1" 
+            id="pwd1" 
+            placeholder="Nhập mật khẩu mới"
+          />
+        </div>
+      </div>
+      <div class = "input-field">
+        <label for="pwd2"> - Mật khẩu mới(Xác nhận): </label>
+        <div class="input">
+          <input 
+            type="password" 
+            name="pwd2" 
+            id="pwd2" 
+            placeholder="Nhập lại mật khẩu mới"
+          />
+        </div>
+      </div>
+        <br>
+        <div class="submit-box">
+            <button type="submit" class="submit-btn">Cập Nhật</button>
+        {% if user.Admin %}
+            <button type="submit" class="submit-btn" name="g_log" value="True">Gửi Log</button>
+        {% endif %}
+        </div>
+      </form>
+      <br>
+  </div>
+</div>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

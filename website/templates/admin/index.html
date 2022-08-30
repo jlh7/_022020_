@@ -1,0 +1,164 @@
+{% extends 'admin/master.html' %}
+{% block title %} Quản trị W4H {% endblock %}
+{% block head_css %} 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+  {{ super() }}
+{% endblock %}
+{% block body %}
+<section class="hero is-info welcome is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Chào mừng, {{ current_user.Hint_name }}!
+      </h1>
+      <h2 class="subtitle">
+        Chúc bạn có một ngày tốt lành! Hãy cùng quản lý trang mạng của chúng ta thật tốt nào!
+      </h2>
+    </div>
+  </div>
+  <div 
+    onclick="location.href='/home/a'"
+    style = "
+      font-weight: 1000;
+      color: black;
+      text-align: right;
+      cursor: pointer;
+      font-style: italic;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+    &#60Về trang chủ&#62 
+  </div>
+</section>
+<section class="info-tiles">
+  <div class="tile is-ancestor has-text-centered">
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <p class="title">Số lập trình viên</p>
+        {% if d_count %}
+        <p class="subtitle"> {{ d_count }}</p>
+        {% endif %}
+      </article>
+    </div>
+  </div>
+  <div id= "UChart" class="tile is-parent"></div>
+  <div id= "EChart" class="tile is-parent" style = "height: 150px;"></div>
+  <br>
+  <div style="display: flex;height: 500px;">
+  <div id= "MChart" class="tile is-parent" style = "max-width: 50%; "></div>
+  <div id= "TChart" class="tile is-parent" style = "max-width: 50%;"></div>
+  </div>
+  <div 
+    onclick="location.href='/logout'"
+    style = "
+      position: fixed;
+      right:0%;
+      bottom: 0%;
+      font-weight: 1000;
+      color: black;
+      text-align: right;
+      cursor: pointer;
+      font-style: italic;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+    &#60Đăng xuất&#62 
+  </div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Người dùng', 'Tài khoản'],
+      ['Đã đăng ký', {{u_count}}],
+      ['Đang hoạt động', {{us_count}}],
+      ['Có kế hoạch', {{up_count}}],
+      ['Đang tập luyện', {{usc_count}}]
+    ]);
+
+    var options = {
+      title: 'Biểu đồ tương quan của Người Dùng'
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('UChart'));
+    chart.draw(data, options);
+
+    var data = google.visualization.arrayToDataTable([
+      ['Bài', 'Đơn vị'],
+      ['Số lượng bài tập', {{e_count}}],
+      ['Các nhóm cơ', {{m_count}}]
+    ]);
+
+    var options = {
+      title: 'Biểu đồ tương quan của Bài tập và Nhóm cơ',
+      bar:{ groupWidth: 20}
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('EChart'));
+    chart.draw(data, options);
+
+    var data = google.visualization.arrayToDataTable([
+      ['Bài', 'Bài tập'],
+      ['Cơ toàn thân', {{em4_count}}],
+      ['Cơ thân trên', {{em1_count}}],
+      ['Cơ thân giữa', {{em2_count}}],
+      ['Cơ thân dưới', {{em3_count}}]
+    ]);
+
+    var options = {
+      title: 'Biểu đồ các Bài tập thuộc từng nhóm cơ',
+      bar:{ groupWidth: 20}
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('MChart'));
+    chart.draw(data, options);
+
+    var data = google.visualization.arrayToDataTable([
+      ['Bài', 'Bài tập'],
+      ['Khởi động', {{et1_count}}],
+      ['Tập chính', {{et2_count}}],
+      ['Giãn cơ', {{et3_count}}]
+    ]);
+
+    var options = {
+      title: 'Biểu đồ các Bài tập thuộc từng giai đoạn',
+      bar:{ groupWidth: 20}
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('TChart'));
+    chart.draw(data, options);
+
+    }
+  </script>
+</section>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

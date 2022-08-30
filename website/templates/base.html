@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link 
+			rel="stylesheet" 
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		/>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+		<link rel="stylesheet" href="{{url_for('static', filename='Css/base.css')}}">
+		{% block head %} {% endblock %}
+
+		<!--Tuỳ biến tiêu đề theo từng trang-->
+	</head>
+	<body>
+		{% if bar %}
+			<nav class="navbar navbar-expand-md navbar-dark bg-transparent">
+				<div class="container-fluid">
+					{% if user.is_authenticated%}
+					<a class ="navbar-brand" href="/home">
+					{% else %}
+					<a class ="navbar-brand" href="/sign_in">
+					{% endif %}
+						<span>W</span>orkout <b>for</b> <span>H</span>ealthy
+					</a>  
+					<span class="navbar-text" >
+							<p id = "clock"></p>
+							<script>
+									var clockElement = document.getElementById('clock');
+									function clock() {
+											clockElement.textContent = new Date().toString().substring(0,24);
+									}
+									setInterval(clock, 1000);
+							</script>
+						</span>
+					</span>
+				</div>
+			</nav>
+			{% with messages = get_flashed_messages(with_categories=true) %} 
+				{% if messages %} 
+					{% for category, message in messages %}
+						{% if category =='error' %}
+						<div class="alert alert-danger alter-dismissable fade show" role="alert">
+							{{ message }}
+							<button type="button" class="close" data-dismiss="alert">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						{% else %}
+						<div class="alert alert-success alter-dismissable fade show" role="alert">
+							{{ message }}
+							<button type="button" class="close" data-dismiss="alert">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						{% endif %} 
+					{% endfor %} 
+				{% endif %} 
+			{% endwith %}
+			<div class = "container">{% block container %} {% endblock %}</div>
+		{% elif user.is_authenticated %}
+			<nav class="navbar navbar-expand-md navbar-dark bg-transparent">
+				<div class="container-fluid">
+					<a 
+						class ="navbar-brand" 
+						href="/about"
+					>
+						<span>W</span>orkout <b>for</b> <span>H</span>ealthy
+					</a>  
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbar"
+					>
+					<span class="navbar-toggler-icon"></span>
+
+					</button>
+					<div class="collapse navbar-collapse" id="navbar">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item">
+								<a 
+									class="nav-link" 
+									href="/home"
+									>
+									<i class="fa fa-home"></i>&nbsp;Tính năng
+								</a>
+							</li>
+							{% if user.Schedule %}
+							<li class="nav-item">
+								<a  class="nav-link" href="/schedule">
+									<i class="fas fa-clipboard-list"></i>&nbsp;Lịch tập
+								</a>
+							</li>
+							{% endif %}
+							{% if user.Dev %}
+							<li class="nav-item">
+								<a  class="nav-link" href="/admin">
+									<i class="fas fa-low-vision"></i>&nbsp;Quản trị
+								</a>
+							</li>
+							{% endif %}
+							<li class="nav-item">
+								<a class="nav-link" href="/acc_info">
+								{% if user.Hint_name %}
+									<i class="far fa-user-circle"></i>&nbsp;({{user.Hint_name}})
+								{% else %}
+									<i class="far fa-user-circle"></i>&nbsp;Tài khoản (*)
+								{% endif %}
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/logout">
+									<i class="fas fa-user-slash"></i>&nbsp;
+								</a>
+							</li>
+						</ul>
+						<span class="navbar-text" >
+							<p id = "clock"></p>
+							<script>
+									var clockElement = document.getElementById('clock');
+
+									function clock() {
+											clockElement.textContent = new Date().toString().substring(0,24);
+									}
+
+									setInterval(clock, 1000);
+							</script>
+						</span>
+					</div>
+				</div>
+			</nav>
+			{% with messages = get_flashed_messages(with_categories=true) %} 
+				{% if messages %} 
+					{% for category, message in messages %}
+						{% if category =='error' %}
+						<div class="alert alert-danger alter-dismissable fade show" role="alert">
+							{{ message }}
+							<button type="button" class="close" data-dismiss="alert">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						{% else %}
+						<div class="alert alert-success alter-dismissable fade show" role="alert">
+							{{ message }}
+							<button type="button" class="close" data-dismiss="alert">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						{% endif %} 
+					{% endfor %} 
+				{% endif %} 
+			{% endwith %}
+			<!--Nội dung của từng trang-->
+			<div class = "container">{% block body %} {% endblock %}</div>
+		{% endif %}
+
+			<script
+				src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+				integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+				crossorigin="anonymous"
+			></script>
+
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+				integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+				crossorigin="anonymous"
+			></script>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+{% extends "base.html" %} 
+
+{% block head  %}
+<!--Các lệnh head của trang Home tại đây-->
+  <link rel="stylesheet" href="{{url_for('static', filename='Css/home.css')}}">
+  <title>Trang chính</title>
+{% endblock %}
+
+{% block body %}
+<!--Các lệnh body của trang Home tại đây-->
+
+<div class="features">
+	<div class="featuresTitle">
+		<h1>Ở đây có gì<span>?</span></h1>
+	</div>
+	<div class="featureCardWrapper">
+		{% if user.Schedule %}
+		<div class="featureCard">
+			<h2>Hãy tiếp tục tập luyện nào!</h2>
+			<p>
+				{% for plan in user.Plan %}
+				{% if plan.Purpose == 1 %}
+				Bạn đã có kế hoạch Giảm mỡ!
+				<br>
+				Hãy tiếp tục quá trình Tạm biệt mỡ nào!
+				{% elif plan.Purpose == 2 %}
+				Bạn đã có kế hoạch Rèn luyện!
+				<br>
+				Hãy tiếp tục quá trình nâng cao Sức khoẻ thôi!
+				{% elif plan.Purpose == 3 %}
+				Bạn đã có kế hoạch Tăng cơ!
+				<br>
+				Hãy tiếp tục quá trình khám phá những khối cơ mới nào!
+				{% endif %}
+				{% endfor %}
+			</p>
+			<button onclick="location.href='/schedule'">Tiếp tục!</button>
+		</div>
+		<div class="featureCard">
+			<h2>Bạn muốn thay đổi lịch tập?</h2>
+			<p>
+				Hãy nhấp vào nút bên dưới!
+			</p>
+			<button onclick="location.href='/home/0'">Thay đổi!</button>
+		</div>
+		{% else %}
+		<form method="POST">
+			<div class="featureCard">
+				<h2>Giảm mỡ</h2>
+				<p>Nhận ngay 1 kế hoạch tập luyện để tạm biệt "bạn" mỡ thôi nào!</p>
+				<button value="1" name = "purpose">
+					Bye! Mỡ ơi!
+				</button>
+			</div>
+
+			<div class="featureCard">
+				<h2>Rèn luyện</h2>
+				<p>Lên kế hoạch tập luyện cho bản thân để tăng cường sức khoẻ cho bản thân!</p>
+				<button value="2" name = "purpose">
+					Rèn luyện ngay!
+				</button>
+			</div>
+
+			<div class="featureCard">
+				<h2>Tăng cơ</h2>
+				<p>Nhận ngay những thử thách để đạt được thân hình mong muốn!</p>
+				<button value="3" name = "purpose">
+					Xin chào! Cơ ơi!
+				</button>
+			</div>
+		</form>
+		{% endif %}
+	</div>
+	<div class="featureCardWrapper">
+		<div class="featureCard">
+			<h2>Chỉ số BMI</h2>
+			<p>Tính chỉ số giữa cân nặng và chiều cao!</p>
+			<button onclick="location.href='/bmi'">Kiểm tra!</button>
+		</div>
+		<div class="featureCard">
+			<h2>Chỉ số Healthy</h2>
+			<p>Tính chỉ số giữa sức khoẻ và vóc dáng!</p>
+			<button onclick="location.href='/healthy'">Tính!</button>
+		</div>
+	</div>
+</div>
+<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "112711311178312");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock %}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Big+Shoulders+Stencil+Display:wght@100;200;300;400;500;700;800;900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Play:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+  background-image: url("../image/gym3.png");
+  background-position: center;
+  background-size: auto;
+}
+
+.heading{
+  color: white;
+  text-align: center;
+  font-family: 'Lora';
+  font-size: 0.9rem;
+  background-color: black;
+}
+.sen{
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-transform: none;
+  font-family: 'Andada Pro', serif;
+  font-size: 6vw;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.col-md-12 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; 
+}
+
+.table {
+  width: 100%;
+  color: #212529; 
+}
+.table th,
+.table td {
+  border-top: 1px solid #dee2e6; 
+}
+.table thead th {
+  color: white;
+  border: 2px solid #dee2e6; 
+  font-family: 'Lora', serif;
+  text-align: center;
+  background-color: black;
+}
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6; 
+}
+
+.table-bordered {
+border: 1px solid #dee2e6; 
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6; 
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+  border-bottom-width: 2px; 
+
+}
+
+.table thead th {
+  border: none;
+  font-size: 14px;
+  color: white; 
+}
+.table tbody td {
+  font-size: 14px;
+  background: #fff;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; 
+  max-width: 100px;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; 
+}
+
+.table tbody td strong {
+  font-weight: bolder; 
+  text-align: center;
+  font-family: 'Lora';
+}
+
+b{
+  font-weight: normal;
+  font-family: 'Andada Pro', serif;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none; 
+}
+
+
+table {
+  border-collapse: collapse; 
+}
+
+caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #6c757d;
+  text-align: left;
+  caption-side: bottom; 
+}
+
+th {
+  text-align: inherit; 
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem; 
+}

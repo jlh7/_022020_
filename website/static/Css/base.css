@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Big+Shoulders+Stencil+Display:wght@100;200;300;400;500;700;800;900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Play:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --orange:#ffa500;
+    --dark-bg: #1b1b25;
+    --dark-light: #2C2C36;
+    --dark-md: #14141a;
+    --dark-grey: #ccc;
+    --yellow-dark: #fffb00;
+    --yellow-light: #FED200;
+    --dark:#000;
+}
+
+body{
+  background-color: black;
+}
+
+*::selection{
+    background:var(--orange);
+    color:#fff;
+}
+
+.alert{
+  font-family: 'Lora';
+  text-align: center;
+}
+
+html::-webkit-scrollbar{
+    width:12px;
+}
+html::-webkit-scrollbar-thumb{
+  background:linear-gradient(transparent,var(--orange));
+  border-radius: 6px;
+}
+html::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(transparent,var(--orange));
+}
+html::-webkit-scrollbar-track{
+  background:#333;
+}
+
+nav {
+  position: fixed;
+  top: 0%;
+}
+
+nav .navbar-brand{
+  height: 80px;
+  width: 300px;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  text-align: center;
+  border: 0;
+  outline: 1;
+  border-radius: 10px;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+nav .navbar-brand span{
+  font-size: 3rem;
+  color: #ffa500;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
+nav .navbar-brand b{
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
+.collapse .navbar-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.collapse .nav-item {
+  display: inline-block;
+  margin-left: 1vw;
+  margin-top: 0.5vw;
+} 
+
+.container-fluid .navbar-text{
+  height: 65px;
+  width: 150px;
+  margin: 0%;
+  color: var(--orange);
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  text-align: center;
+  border: 0;
+  outline: 1;
+  border-radius: 10px;
+  font-weight: 1000;
+  font-family: 'Lora';
+} 
+
+.navbar-nav .nav-item .nav-link{
+  color:#fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bolder;
+  font-family: 'Play', sans-serif;
+  transition: all ease-in-out 250ms;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color:var(--orange);
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-item .nav-link:hover::before {
+  width: 100%;
+}
+
+.navbarbot{
+	position: fixed;
+	right:0%;
+  bottom: 0%;
+	font-weight: 1000;
+	color: var(--orange);
+  text-align: right;
+	cursor: pointer;
+  font-style: italic;
+}
+
+nav .navbar-text{
+  color:#fff;
+}
